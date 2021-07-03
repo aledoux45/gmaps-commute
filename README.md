@@ -10,8 +10,13 @@ For example my `to_work.sh` looks like this:
 
 ```bash
 # to_work.sh
-cd path/to/folder/ && path/to/conda/env/python commute.py --pointA="Home address" --pointB="Work address" --APIkey="Your-API-KEY" 2> logs.err
+cd path/to/folder/ && path/to/conda/env/python commute.py --pointA="Home address" \
+                                                          --pointB="Work address" \
+                                                          --mode="driving" \
+                                                          --APIkey="Your-API-KEY" 2> logs.err
 ```
+
+You can change the mode of transportation to either "driving", "walking", "bicycling" or "transit".
 
 ## API Key
 To get a Google API Key:
@@ -35,3 +40,6 @@ So that it runs every 5 minutes between 6am and 9am on weekdays.
 ## Troubleshoot
 - Check the `logs.err` file for any error message you may get.
 - If you are using Mac OS Catalina or older, you may need to give permissions to `cron` (you will get the error `Operation not permitted` otherwise). This [link](https://blog.bejarano.io/fixing-cron-jobs-in-mojave/) explains how to do it.
+
+## References
+Github repo for GoogleMaps API: https://github.com/googlemaps/google-maps-services-python

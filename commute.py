@@ -29,7 +29,7 @@ gmaps = googlemaps.Client(key=args.APIkey)
 now = datetime.now()
 directions_result = gmaps.directions(args.pointA,
                                      args.pointB,
-                                     mode="driving", # walking, bicycling, transit
+                                     mode=args.mode, # walking, bicycling, transit
                                      departure_time=now)
 
 # Return the time in seconds
