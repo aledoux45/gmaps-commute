@@ -25,7 +25,7 @@ assert args.mode in ["driving", "walking", "bicycling", "transit"], "Mode of tra
 # Start Gmaps client
 gmaps = googlemaps.Client(key=args.APIkey)
 
-# Request directions via public transit
+# Request directions
 now = datetime.now()
 directions_result = gmaps.directions(args.pointA,
                                      args.pointB,
