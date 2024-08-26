@@ -13,7 +13,7 @@ For example my `to_work.sh` looks like this:
 cd path/to/folder/ && path/to/conda/env/python commute.py --pointA="Home address" \
                                                           --pointB="Work address" \
                                                           --mode="driving" \
-                                                          --APIkey="Your-API-KEY" 2> logs.err
+                                                          --APIkey="Your-API-KEY" 2> logs/logs.err
 ```
 
 You can change the mode of transportation to either "driving", "walking", "bicycling" or "transit".
