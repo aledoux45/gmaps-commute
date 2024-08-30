@@ -1,7 +1,6 @@
 ## Intro
-Have you ever wondered when is the best time for you to go to work in order to avoid traffic?  
-This script gathers the data for you so that you can find that out!  
-Essentially the `commute.py` script asks the GoogleMaps API how long it will take you to go to work now and then save teh result to a csv file in `data/times.csv`. Then you simply have to add this script to a scheduler and write the output to a csv file to gather some data!
+This repo uses Google API to gather data about your commute.
+Essentially the `commute.py` script queries the GoogleMaps API how long it will take you to go to work now and then save the result to a csv file under `data/times.csv`. Then you simply have to add this script to a scheduler and write the output to a csv file to gather some data!
 
 
 ## Instructions

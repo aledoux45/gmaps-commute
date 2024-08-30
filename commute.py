@@ -8,13 +8,12 @@ from datetime import datetime
 import argparse
 import csv
 
-output_file = "data/times.csv"
-
 # Parse input arguments
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--pointA', help='Point A address')
 parser.add_argument('--pointB', help='Point B address')
+parser.add_argument('--output', help='Output file')
 parser.add_argument('--mode', default='driving', help='Mode of Transportation')
 parser.add_argument('--APIkey', help='GoogleMaps API Key')
 
@@ -26,16 +25,16 @@ assert args.mode in ["driving", "walking", "bicycling", "transit"], "Mode of tra
 gmaps = googlemaps.Client(key=args.APIkey)
 
 # Request directions
-now = datetime.now()
+timestamp = datetime.now()
 directions_result = gmaps.directions(args.pointA,
                                      args.pointB,
                                      mode=args.mode, # walking, bicycling, transit
-                                     departure_time=now)
+                                     departure_time=timestamp)
 
 # Return the time in seconds
-commute = directions_result[0]['legs'][0]['duration']['value']
+commute_time = directions_result[0]['legs'][0]['duration']['value']
 
 # Write row in csv file
-with open(output_file, 'a+', newline='') as csvfile:
+with open(args.output, 'a+', newline='') as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow([now, commute])
+    writer.writerow([timestamp, commute_time])
